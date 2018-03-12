@@ -7,14 +7,14 @@ var alphabet = ["a","b","c","d","e","f","g","h","i","j",
                 "u","v","w","x","y","z"];
 
 var answer = alphabet[Math.floor(Math.random()*alphabet.length)];
-
+console.log(answer);
 document.onkeyup = function (event){
     var userKey = event.key;
     guessLeft--;
     guesses.push(userKey);
     document.getElementById("guesses").innerHTML = "Your guesses: " + guesses;
     document.getElementById("guessLeft").innerHTML = "Guess left: " + guessLeft;
-    if(guessLeft > 0)
+    if(guessLeft >= 0)
     {
         if(userKey == answer)
         {
@@ -23,8 +23,8 @@ document.onkeyup = function (event){
             guessLeft = 9;
             guesses.length = 0;
             alert("You win");
-            var answer = alphabet[Math.floor(Math.random()*alphabet.length)];
-
+            answer = alphabet[Math.floor(Math.random()*alphabet.length)];
+            
         }
     }
     else if(guessLeft == 0)
@@ -34,8 +34,8 @@ document.onkeyup = function (event){
         guessLeft = 9;
         guesses.length = 0;
         alert("You lose");
-        var answer = alphabet[Math.floor(Math.random()*alphabet.length)];
+        answer = alphabet[Math.floor(Math.random()*alphabet.length)];
         
-    }
+    }   
     
 }
