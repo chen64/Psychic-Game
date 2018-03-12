@@ -14,10 +14,9 @@ document.onkeyup = function (event){
     guesses.push(userKey);
     document.getElementById("guesses").innerHTML = "Your guesses: " + guesses;
     document.getElementById("guessLeft").innerHTML = "Guess left: " + guessLeft;
-    if(guessLeft >= 0)
+
+    if(userKey == answer)
     {
-        if(userKey == answer)
-        {
             wins++;
             document.getElementById("wins").innerHTML = "Wins: " + wins;
             guessLeft = 9;
@@ -25,7 +24,6 @@ document.onkeyup = function (event){
             alert("You win");
             answer = alphabet[Math.floor(Math.random()*alphabet.length)];
             
-        }
     }
     else if(guessLeft == 0)
     {
